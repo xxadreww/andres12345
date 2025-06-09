@@ -1,0 +1,512 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkskpavqya0o2"]
+
+[ext_resource type="PackedScene" uid="uid://1o34vldnsbvu" path="res://scenes/world_layer.tscn" id="1_pw63i"]
+[ext_resource type="PackedScene" uid="uid://cklq6bjwo3103" path="res://scenes/world_overlay_layer.tscn" id="1_w2twt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw63i"]
+bg_color = Color(0, 0.254902, 0.47451, 0.85098)
+
+[sub_resource type="Theme" id="Theme_pw63i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ykc4"]
+bg_color = Color(0, 0.522529, 0.795286, 1)
+border_width_bottom = 10
+border_color = Color(9.62615e-08, 0.417201, 0.659728, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 0.682353)
+
+[sub_resource type="GDScript" id="GDScript_pw63i"]
+
+[sub_resource type="GDScript" id="GDScript_7ykc4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3yx"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 10
+border_width_right = 5
+border_width_bottom = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gubc5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rt2n2"]
+bg_color = Color(0, 0.62561, 0.979954, 1)
+border_width_bottom = 10
+border_color = Color(0, 0.404991, 0.642883, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="MainScene" type="Node"]
+
+[node name="World" type="Node" parent="."]
+
+[node name="WorldLayer" parent="World" instance=ExtResource("1_pw63i")]
+visible = false
+
+[node name="Interfaces" type="Node" parent="."]
+
+[node name="WorldOverlayLayer" parent="Interfaces" instance=ExtResource("1_w2twt")]
+
+[node name="Sidebar" type="CanvasLayer" parent="."]
+
+[node name="PanelPrincipal" type="PanelContainer" parent="Sidebar"]
+custom_minimum_size = Vector2(600, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pw63i")
+
+[node name="SideVista1" type="MarginContainer" parent="Sidebar/PanelPrincipal"]
+layout_mode = 2
+theme_override_constants/margin_top = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar/PanelPrincipal/SideVista1"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BotonModelos" type="Button" parent="Sidebar/PanelPrincipal/SideVista1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme = SubResource("Theme_pw63i")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ykc4")
+text = "Obtener Modelos"
+script = SubResource("GDScript_pw63i")
+
+[node name="BotonImportar" type="Button" parent="Sidebar/PanelPrincipal/SideVista1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme = SubResource("Theme_pw63i")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ykc4")
+text = "Importar Modelos"
+script = SubResource("GDScript_pw63i")
+
+[node name="BotonGuardarP" type="Button" parent="Sidebar/PanelPrincipal/SideVista1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme = SubResource("Theme_pw63i")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ykc4")
+text = "Guardar Proyecto"
+
+[node name="BotonCargarP" type="Button" parent="Sidebar/PanelPrincipal/SideVista1/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme = SubResource("Theme_pw63i")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ykc4")
+text = "Cargar Proyecto"
+
+[node name="Control" type="Control" parent="Sidebar/PanelPrincipal/SideVista1/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="BotonSalir" type="Button" parent="Sidebar/PanelPrincipal/SideVista1/VBoxContainer/Control"]
+layout_direction = 1
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1047.0
+offset_right = 240.0
+offset_bottom = 1195.0
+theme = SubResource("Theme_pw63i")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ykc4")
+text = "⏻ Exit"
+vertical_icon_alignment = 2
+script = SubResource("GDScript_7ykc4")
+
+[node name="BotonSalir2" type="Button" parent="Sidebar/PanelPrincipal/SideVista1/VBoxContainer/Control"]
+layout_direction = 1
+layout_mode = 0
+offset_left = 362.0
+offset_top = 1047.0
+offset_right = 599.0
+offset_bottom = 1195.0
+theme = SubResource("Theme_pw63i")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ykc4")
+text = "Info"
+vertical_icon_alignment = 2
+script = SubResource("GDScript_7ykc4")
+
+[node name="SideVista2MODELOS" type="MarginContainer" parent="Sidebar/PanelPrincipal"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar/PanelPrincipal/SideVista2MODELOS"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "Modelos 3D"
+
+[node name="HSeparator" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_pu3yx")
+
+[node name="MarginContainer" type="MarginContainer" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+
+[node name="PackMesas" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Mesas"
+
+[node name="HSeparator" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="Mesas1" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Mesas pequeñas"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas1"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -39.5
+offset_bottom = 39.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="Mesas2" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Mesas medianas"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas2"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="Mesas 3" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Mesas grandes"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Mesas 3"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="HSeparator2" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="Asientos" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Asientos"
+
+[node name="HSeparator3" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="Sillas1" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Sillas"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Sillas1"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="Muebles1" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Muebles"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Muebles1"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="Sofas1" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Sofás"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Sofas1"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="HSeparator4" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="Tapizado" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Tapizado"
+
+[node name="HSeparator5" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="Pisos" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Pack de Pisos"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Pisos"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="Paredes" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Pack de Paredes"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Paredes"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="HSeparator6" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="Accesorios Pared" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "Accesorios Pared"
+
+[node name="HSeparator7" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="Cuadros" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Cuadros"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Cuadros"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="Ventanas" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Ventanas"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Ventanas"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="Adornos" type="Label" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "     Adornos"
+
+[node name="Button" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Adornos"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_rt2n2")
+text = "+"
+
+[node name="HSeparator8" type="HSeparator" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = -5
+theme_override_styles/separator = SubResource("StyleBoxFlat_gubc5")
+
+[node name="BotonVolver" type="Button" parent="Sidebar/PanelPrincipal/SideVista2MODELOS/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = SubResource("Theme_pw63i")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ykc4")
+text = " Volver "
+vertical_icon_alignment = 2
+script = SubResource("GDScript_7ykc4")
